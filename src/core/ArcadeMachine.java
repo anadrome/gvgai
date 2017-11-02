@@ -342,7 +342,8 @@ public class ArcadeMachine
 
             for(int i = 0; i < level_times; ++i)
             {
-                System.out.println(" ** Playing game " + game_file + ", level " + level_file + " ("+(i+1)+"/"+level_times+") **");
+		//                System.out.println(" ** Playing game " + game_file + ", level " + level_file + " ("+(i+1)+"/"+level_times+") **");
+		System.out.print(game_file.substring(21,game_file.length()-4) + "\t" + level_file.substring(21,level_file.length()-4));
 
                 //build the level in the game.
                 toPlay.buildLevel(level_file);
@@ -385,9 +386,9 @@ public class ArcadeMachine
             levelIdx++;
         }
 
-        System.out.println(" *** Results in game " + game_file + " *** ");
-        System.out.println(scores);
-        System.out.println(" *********");
+	//        System.out.println(" *** Results in game " + game_file + " *** ");
+	//        System.out.println(scores);
+	//        System.out.println(" *********");
     }
 
     /**
@@ -574,13 +575,13 @@ public class ArcadeMachine
             if(ect.exceededMaxTime())
             {
                 long exceeded =  - ect.remainingTimeMillis();
-                System.out.println("Controller initialization time out (" + exceeded + ").");
+		//                System.out.println("Controller initialization time out (" + exceeded + ").");
 
                 return null;
             }
             else
             {
-                System.out.println("Controller initialization time: " + timeTaken + " ms.");
+		//                System.out.println("Controller initialization time: " + timeTaken + " ms.");
             }
 
         //This code can throw many exceptions (no time related):
@@ -898,13 +899,13 @@ public class ArcadeMachine
         if(ect.exceededMaxTime())
         {
             long exceeded =  - ect.remainingTimeMillis();
-            System.out.println("Controller tear down time out (" + exceeded + ").");
+	    //            System.out.println("Controller tear down time out (" + exceeded + ").");
 
             toPlay.disqualify();
             return false;
         }
 
-        System.out.println("Controller tear down time: " + timeTaken + " ms.");
+	//        System.out.println("Controller tear down time: " + timeTaken + " ms.");
         return true;
     }
 
